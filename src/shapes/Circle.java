@@ -10,7 +10,7 @@ package shapes;
 
 public class Circle extends Shape2D {
 
-
+    private double radius;
 
     /**
      * Constructor for Circle shape object
@@ -19,22 +19,27 @@ public class Circle extends Shape2D {
      */
     public Circle(Point centre, double radius) {
         super(centre);
+        this.radius = radius;
 
     }
 
     @Override
     public boolean containsPoint(Point point) {
-        // TODO Auto-generated method stub
-        throw new UnsupportedOperationException("Unimplemented method 'containsPoint'");
+        return this.centre.distanceBetween(point) <= this.radius;
     }
 
     @Override
     public Point[] getVertices() {
-        // TODO Auto-generated method stub
-        throw new UnsupportedOperationException("Unimplemented method 'getVertices'");
+        return new Point[0];
     }
 
+    @Override
+    public double getArea() {
+        return Math.PI * Math.pow(this.radius, 2);
+    }
 
-
-
+    @Override
+    public double getPerimeter() {
+        return 2 * Math.PI * this.radius;
+    }
 }

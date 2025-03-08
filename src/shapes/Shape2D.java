@@ -11,26 +11,25 @@ package shapes;
  */
 public abstract class Shape2D {
 
+    protected Point centre;
+    private double area;
+    private double perimeter;
+
 
     public Shape2D(Point centre) {
+        this.centre = centre;
+
 
     }
 
     public void translate(double xCord, double yCord) {
-        // TODO Auto-generated method stub
-        throw new UnsupportedOperationException("Unimplemented method 'translate'");
+        centre.translatePoint(xCord, yCord);
     }
 
     public abstract boolean containsPoint(Point point);
 
     public abstract Point[] getVertices();
 
-    public Object getArea() {
-        return 0.0F;
-    }
-
-    public Object getPerimeter() {
-        // TODO Auto-generated method stub
-        throw new UnsupportedOperationException("Unimplemented method 'getPerimeter'");
-    }
+    public abstract double getArea();
+    public abstract double getPerimeter(); 
 }

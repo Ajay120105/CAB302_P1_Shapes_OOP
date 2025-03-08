@@ -9,6 +9,8 @@ package shapes;
  */
 
 public class EquilateralTriangle  extends Shape2D {
+
+    private double sideLength;
     
     /**
     * Constructor for Equilateral Triangle  shape object
@@ -17,22 +19,41 @@ public class EquilateralTriangle  extends Shape2D {
     */
     public EquilateralTriangle(Point centre, double sideLength) {
         super(centre);
+        this.sideLength = sideLength;
 
     }
 
     @Override
     public boolean containsPoint(Point point) {
-        // TODO Auto-generated method stub
-        throw new UnsupportedOperationException("Unimplemented method 'containsPoint'");
+        double[] pointdiff = calculateDxDy(point);
+        return (pointdiff[1] <= Math.sqrt(3) * (pointdiff[0] + this.sideLength/3)) && 
+                (pointdiff[1] <=-(Math.sqrt(3) * (pointdiff[0] - this.sideLength/3))) &&
+                (pointdiff[1] >= -(Math.sqrt(3)/6 * this.sideLength));
+    }
+
+    private double[] calculateDxDy(Point point) {
+        double[] pointdiff = new double [2];
+        pointdiff[0] = point.getXCord() - this.centre.getXCord();
+        pointdiff[1] = point.getYCord() - this.centre.getYCord();
+        return pointdiff;
     }
 
     @Override
     public Point[] getVertices() {
-        // TODO Auto-generated method stub
-        throw new UnsupportedOperationException("Unimplemented method 'getVertices'");
+        Point[] vertices = new Point[3];
+        vertices[0] = new Point(this.centre.getXCord(), this.centre.getYCord() + Math.sqrt(3)/3 * this.sideLength);
+        vertices[1] = new Point(this.centre.getXCord() - this.sideLength/2, this.centre.getYCord() - Math.sqrt(3)/6 * this.sideLength);
+        vertices[2] = new Point(this.centre.getXCord() + this.sideLength/2, this.centre.getYCord()  - Math.sqrt(3)/6 * this.sideLength);
+        return vertices;
     }
 
+    @Override
+    public double getArea() {
+        return Math.sqrt(3)/4 * Math.pow(this.sideLength, 2);
+    }
 
-
-
+    @Override
+    public double getPerimeter() {
+        return 3 * this.sideLength;
+    }
 }
