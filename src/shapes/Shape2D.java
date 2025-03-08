@@ -15,4 +15,22 @@ public abstract class Shape2D {
     public Shape2D(Point centre) {
 
     }
+
+    public void translate(double xCord, double yCord) {
+        // TODO Auto-generated method stub
+        throw new UnsupportedOperationException("Unimplemented method 'translate'");
+    }
+
+    public abstract boolean containsPoint(Point point);
+
+    public abstract Point[] getVertices();
+
+    public Object getArea() {
+        return 0.0F;
+    }
+
+    public Object getPerimeter() {
+        // TODO Auto-generated method stub
+        throw new UnsupportedOperationException("Unimplemented method 'getPerimeter'");
+    }
 }

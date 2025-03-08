@@ -270,7 +270,7 @@ public class Main {
      * @param centre which is the centre of the triangle
      * @return Equilateral Triangle object
      */
-    public EquilateralTriangle readEquilateralTriangle(Scanner userInput, Point centre)
+    public Shape2D readEquilateralTriangle(Scanner userInput, Point centre)
     {
         double side = askDoubleInput(userInput, TRIANGLE_SIDE, 1, Double.MAX_VALUE);
 

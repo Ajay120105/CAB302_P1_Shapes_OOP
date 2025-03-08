@@ -3,7 +3,7 @@
  */
 package shapes;
 
-public class Rectangle  {
+public class Rectangle extends Shape2D {
 
     /**
      * Constructor for Rectangle shape object
@@ -12,7 +12,20 @@ public class Rectangle  {
      * @param length The length of rectangle
      */
     public Rectangle(Point centre, double width, double length) {
+        super(centre);
 
+    }
+
+    @Override
+    public Point[] getVertices() {
+        // TODO Auto-generated method stub
+        throw new UnsupportedOperationException("Unimplemented method 'getVertices'");
+    }
+
+    @Override
+    public boolean containsPoint(Point point) {
+        // TODO Auto-generated method stub
+        throw new UnsupportedOperationException("Unimplemented method 'containsPoint'");
     }
 
 }

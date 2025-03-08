@@ -8,7 +8,7 @@ package shapes;
  * contain any vertices
  */
 
-public class Circle  {
+public class Circle extends Shape2D {
 
 
 
@@ -18,7 +18,20 @@ public class Circle  {
      * @param radius The radius of the circle created
      */
     public Circle(Point centre, double radius) {
+        super(centre);
 
+    }
+
+    @Override
+    public boolean containsPoint(Point point) {
+        // TODO Auto-generated method stub
+        throw new UnsupportedOperationException("Unimplemented method 'containsPoint'");
+    }
+
+    @Override
+    public Point[] getVertices() {
+        // TODO Auto-generated method stub
+        throw new UnsupportedOperationException("Unimplemented method 'getVertices'");
     }
 
 
